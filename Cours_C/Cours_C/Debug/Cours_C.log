@@ -1,2 +1,5 @@
-﻿  Source.cpp
-  Cours_C.vcxproj -> C:\Users\Guerraz Yohan\Desktop\Cours Isitech\COURS\C++\Cours_C\Debug\Cours_C.exe
+﻿  solution.cpp
+  Source.cpp
+  Génération de code en cours...
+Source.obj : error LNK2005: _main déjà défini(e) dans solution.obj
+C:\Users\Guerraz Yohan\Desktop\Cours Isitech\COURS\C++\Cours_C\Debug\Cours_C.exe : fatal error LNK1169: un ou plusieurs symboles définis à différentes reprises ont été rencontrés
