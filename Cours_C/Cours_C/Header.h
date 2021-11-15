@@ -8,12 +8,19 @@
 #ifndef HEADER_H_INCLUDED
 #define HEADER_H_INCLUDED
 
+enum class ChoixMenu
+{
+    JOUER = 'j',
+    QUITTER = 'q',
+    INCORRECT
+};
 
 
 /**
 *
  */
 void JustePrix();
-
+void JeuJustePrix();
+ChoixMenu demanderChoixMenu();
 
 #endif // HEADER_H_INCLUDED
