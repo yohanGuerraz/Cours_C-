@@ -5,10 +5,11 @@ void demanderProposition(int &proposition)
     cin >> proposition;
 }
 
-void jouerPartie(int leJustePrix, int max)
+int jouerPartie(int leJustePrix, int max)
 {
     auto proposition{ 0 };
     auto nombreTentatives{ 0 };
+    int ScorePartie = 0;
     do
     {
         cout << "Proposition? ";
@@ -22,6 +23,7 @@ void jouerPartie(int leJustePrix, int max)
             if (proposition == leJustePrix)
             {
                 cout << "Bravo! " << endl;
+                //ScorePartie = ScorePartie + 1;
             }
             else if (proposition > leJustePrix)
             {
@@ -42,7 +44,10 @@ void jouerPartie(int leJustePrix, int max)
     else
     {
         cout << "partie abandonnée ";
+        ScorePartie = 0;
     }
+
+    return;
 }
 
 void jouerTroisParties()
@@ -52,16 +57,11 @@ void jouerTroisParties()
     {
         jouerPartie(aDeviner, BORNE_MAX);
     }
-}
-
-void AfficherScore()
-{
-
 
 }
 
-void CalculeScore() 
+void AfficherScore(TableauScore& score)
 {
-
+    auto Score = TableauScore{ 0, 0, 0 };
 
 }

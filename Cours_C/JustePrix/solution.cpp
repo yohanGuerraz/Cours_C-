@@ -9,7 +9,6 @@
 * Description : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 */
 
-//array<int, cte> scores{ 1, 2, 3 };
 
 int main()
 {

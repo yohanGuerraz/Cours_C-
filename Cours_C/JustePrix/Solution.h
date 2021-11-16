@@ -15,7 +15,7 @@ const auto BORNE_MAX_FACILE{ 1'000 };
 using namespace std;
 
 /**
-*
+* Declaration des procedures/fonctions du programme 
  */
 
 
