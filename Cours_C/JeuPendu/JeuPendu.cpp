@@ -8,7 +8,7 @@ int main() {
     srand(time(NULL));
     mot = nbAleatoire(0, 51);
     printf("Donnez votre nom tout d'abord\n");
-    scanf_s("%s", &nom);
+    scanf_s("%p", &nom);
     system("CLS");
     c = strlen(liste[mot]);
     //Calcul du nombre de lettres cachées dans le mot 
@@ -24,7 +24,7 @@ int main() {
     do {
         if (cpt > 0 && essai <= 5) {
             printf("Donnez une lettre\t ");
-            c = getch();
+            c = _getch();
             printf("%c\n", c);
             // cpt1 : Variable a partir de laquelle on pourra savoir si la lettre est valide ( si cpt est decrementé ou pas )  
             cpt1 = cpt;
@@ -61,7 +61,7 @@ int main() {
         printf("\nD\x82sol\x82 %s ... Faites vos dernieres prieres... Vous serez pendu hahahahaha!!!", nom);
     }
 
-    getch();
+    _getch();
     return 0;
 }
 
