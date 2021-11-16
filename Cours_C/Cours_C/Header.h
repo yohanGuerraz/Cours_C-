@@ -20,7 +20,5 @@ enum class ChoixMenu
 *
  */
 void JustePrix();
-void JeuJustePrix();
-ChoixMenu demanderChoixMenu();
 
 #endif // HEADER_H_INCLUDED
