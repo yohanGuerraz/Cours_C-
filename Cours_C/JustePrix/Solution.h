@@ -3,7 +3,7 @@
 #include <math.h>
 #include <iostream>
 #include <vector>
-
+#include <array>
 
 #ifndef HEADER_H_INCLUDED
 #define HEADER_H_INCLUDED

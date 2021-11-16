@@ -53,3 +53,15 @@ void jouerTroisParties()
         jouerPartie(aDeviner, BORNE_MAX);
     }
 }
+
+void AfficherScore()
+{
+
+
+}
+
+void CalculeScore() 
+{
+
+
+}

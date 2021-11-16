@@ -5,9 +5,11 @@
 /*
 * Nom : Guerraz
 * Prenom : Yohan
-* Date : 15/11/2021
+* Date : 16/11/2021
 * Description : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 */
+
+//array<int, cte> scores{ 1, 2, 3 };
 
 int main()
 {
