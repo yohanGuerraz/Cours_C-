@@ -1,5 +1,13 @@
 #include "Solution.h"
 #include "Jeu.h"
+#include "Menu.h"
+
+/*
+* Nom : Guerraz
+* Prenom : Yohan
+* Date : 15/11/2021
+* Description : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
+*/
 
 int main()
 {
@@ -40,75 +48,3 @@ int main()
     return EXIT_SUCCESS;
 }
 
-ChoixMenu demanderChoixMenu()
-{
-    char saisieChoix;
-    cin >> saisieChoix;
-    if (saisieChoix == static_cast<char>(ChoixMenu::JOUER) || saisieChoix == static_cast<char>(ChoixMenu::JOUER_FACILE) || saisieChoix == static_cast<char>(ChoixMenu::JOUER_TROIS_PARTIES) || saisieChoix == static_cast<char>(ChoixMenu::QUITTER))
-    {
-        return static_cast<ChoixMenu>(saisieChoix);
-    }
-    else
-    {
-        return ChoixMenu::INCORRECT;
-    }
-}
-
-
-void jouerPartie(int leJustePrix, int max)
-{
-    auto proposition{ 0 };
-    auto nombreTentatives{ 0 };
-    do
-    {
-        cout << "Proposition? ";
-        demanderProposition(proposition);
-
-        cout << proposition;
-
-        if (proposition >= BORNE_MIN && proposition < max)
-        {
-            nombreTentatives++;
-            if (proposition == leJustePrix)
-            {
-                cout << "Bravo! " << endl;
-            }
-            else if (proposition > leJustePrix)
-            {
-                cout << "C'est moins ! " << endl;
-            }
-            else
-            {
-                cout << "C'est plus ! " << endl;
-            }
-        }
-    } while (proposition != leJustePrix && proposition >= BORNE_MIN);
-
-    if (proposition == leJustePrix)
-    {
-        cout << "partie terminée! "
-            << "en " << nombreTentatives << " tentatives" << endl;
-    }
-    else
-    {
-        cout << "partie abandonnée ";
-    }
-}
-
-void jouerTroisParties()
-{
-    cout << "C'est parti ! " << endl;
-    for (auto aDeviner : { 208, 42, 1984 })
-    {
-        jouerPartie(aDeviner, BORNE_MAX);
-    }
-}
-
-void afficherMenu()
-{
-    cout << static_cast<char>(ChoixMenu::JOUER) << ": jouer" << endl;
-    // on ajoute les choix possible à l'affichage
-    cout << static_cast<char>(ChoixMenu::JOUER_FACILE) << ": jouer" << endl;
-    cout << static_cast<char>(ChoixMenu::JOUER_TROIS_PARTIES) << ": jouer" << endl;
-    cout << static_cast<char>(ChoixMenu::QUITTER) << ": quitter" << endl;
-}

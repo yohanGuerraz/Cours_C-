@@ -1,18 +1,16 @@
 #pragma once
-#include <stdio.h>
-#include <math.h>
-#include <iostream>
-#include <vector>
+#include "Solution.h"
 
 
-#ifndef HEADER_H_INCLUDED
-#define HEADER_H_INCLUDED
+#ifndef JEU_H_INCLUDED
+#define JEU_H_INCLUDED
 
 using namespace std;
 /**
 *
  */
+void jouerTroisParties();
+void jouerPartie(int leJustePrix, int max);
+void demanderProposition(int &proposition);
 
-void demanderProposition(int& proposition);
-
-#endif // HEADER_H_INCLUDED
+#endif // JEU_H_INCLUDED
