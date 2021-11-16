@@ -1,9 +1,10 @@
 # Cours_C-
 exemple de code fait en cours pour vérifier nos compétence en C++
 
-## Dans le projet Cours_C
-
-Dans ce projet on peut y retrouver le jeux du JUSTE PRIX 
+#### Dans cette solution sont regroupés les projet suivant:
+	- Cours_C
+	- JeuPendu
+	- JustePrix
 
 ## Dans le projet reference
 
