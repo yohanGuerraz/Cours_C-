@@ -1,8 +1,8 @@
 ﻿  AffichagePendu.cpp
   Aleatoire.cpp
   main.cpp
-C:\Users\Guerraz Yohan\Desktop\Cours_C-\MonPendu\MonPendu\main.cpp(10,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-C:\Users\Guerraz Yohan\Desktop\Cours_C-\MonPendu\MonPendu\main.cpp(13,13): warning C4477: 'scanf_s' : la chaîne de format '%p' nécessite un argument de type 'void **', mais l'argument variadique 1 est de type 'char (*)[20]'
-C:\Users\Guerraz Yohan\Desktop\Cours_C-\MonPendu\MonPendu\main.cpp(15,27): warning C4267: '=' : conversion de 'size_t' en 'char', perte possible de données
+C:\Users\Guerraz Yohan\Desktop\Cours_C-\MonPendu\MonPendu\main.cpp(29,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\Guerraz Yohan\Desktop\Cours_C-\MonPendu\MonPendu\main.cpp(33,13): warning C4477: 'scanf_s' : la chaîne de format '%p' nécessite un argument de type 'void **', mais l'argument variadique 1 est de type 'char (*)[20]'
+C:\Users\Guerraz Yohan\Desktop\Cours_C-\MonPendu\MonPendu\main.cpp(35,27): warning C4267: '=' : conversion de 'size_t' en 'char', perte possible de données
   Génération de code en cours...
   MonPendu.vcxproj -> C:\Users\Guerraz Yohan\Desktop\Cours_C-\MonPendu\Debug\MonPendu.exe
