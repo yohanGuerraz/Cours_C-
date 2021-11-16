@@ -7,8 +7,8 @@
 #include <time.h>
 #include <iostream>
 
-#ifndef HEADER_H_INCLUDED
-#define HEADER_H_INCLUDED
+#ifndef JEUPENDU_H_INCLUDED
+#define JEUPENDU_H_INCLUDED
 
 using namespace std;
 
@@ -26,4 +26,4 @@ void pendu6();
 
 
 
-#endif // HEADER_H_INCLUDED
+#endif // JEUPENDU_H_INCLUDED

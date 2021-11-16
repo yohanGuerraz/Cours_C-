@@ -1,0 +1,9 @@
+﻿  JeuPendu.cpp
+C:\Users\Guerraz Yohan\Desktop\Cours_C-\Cours_C\JeuPendu\JeuPendu.cpp(8,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\Guerraz Yohan\Desktop\Cours_C-\Cours_C\JeuPendu\JeuPendu.cpp(11,13): warning C4473: 'scanf_s' : nombre insuffisant d'arguments passés pour la chaîne de format
+C:\Users\Guerraz Yohan\Desktop\Cours_C-\Cours_C\JeuPendu\JeuPendu.cpp(11,13): message : les espaces réservés et leurs paramètres attendent des arguments 2 variadiques, mais des arguments 1 ont été fournis
+C:\Users\Guerraz Yohan\Desktop\Cours_C-\Cours_C\JeuPendu\JeuPendu.cpp(11,13): message : l'argument variadique manquant 2 est demandé par la chaîne de format '%s'
+C:\Users\Guerraz Yohan\Desktop\Cours_C-\Cours_C\JeuPendu\JeuPendu.cpp(11,13): message : cet argument est utilisé comme taille de mémoire tampon
+C:\Users\Guerraz Yohan\Desktop\Cours_C-\Cours_C\JeuPendu\JeuPendu.cpp(13,27): warning C4267: '=' : conversion de 'size_t' en 'char', perte possible de données
+C:\Users\Guerraz Yohan\Desktop\Cours_C-\Cours_C\JeuPendu\JeuPendu.cpp(27,17): error C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+C:\Users\Guerraz Yohan\Desktop\Cours_C-\Cours_C\JeuPendu\JeuPendu.cpp(64,5): error C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
