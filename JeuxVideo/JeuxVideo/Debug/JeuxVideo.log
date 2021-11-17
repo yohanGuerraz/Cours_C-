@@ -1,0 +1,25 @@
+﻿  Skipping vcpkg. (no packages)
+  Source.cpp
+C:\Users\Guerraz Yohan\Desktop\Cours Isitech\COURS\C++\JeuxVideo\JeuxVideo\Source.cpp(50,57): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\Guerraz Yohan\Desktop\Cours Isitech\COURS\C++\JeuxVideo\JeuxVideo\Source.cpp(50,41): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\Guerraz Yohan\Desktop\Cours Isitech\COURS\C++\JeuxVideo\JeuxVideo\Source.cpp(53,58): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\Guerraz Yohan\Desktop\Cours Isitech\COURS\C++\JeuxVideo\JeuxVideo\Source.cpp(53,42): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\Guerraz Yohan\Desktop\Cours Isitech\COURS\C++\JeuxVideo\JeuxVideo\Source.cpp(122,35): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Guerraz Yohan\Desktop\Cours Isitech\COURS\C++\JeuxVideo\JeuxVideo\Source.cpp(141,36): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+  JeuxVideo.vcxproj -> C:\Users\Guerraz Yohan\Desktop\Cours Isitech\COURS\C++\JeuxVideo\Debug\JeuxVideo.exe
