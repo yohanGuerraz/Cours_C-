@@ -7,6 +7,7 @@ exemple de code fait en cours pour vérifier nos compétence en C++
 - [MonPendu](#projet-MonPendu)
 - [reference](#projet-reference)
 - [JeuxVideo](#projet-JeuxVideo)
+- [Sources](#Sources)
 	
 **************************************************************************************	
 	
@@ -710,6 +711,9 @@ void RaquetteIA()
 ```
 
 **************************************************************************************
+
+<div id='Sources'/>
+
 ## Sources
 - Lien ressources pour [C++](https://isocpp.org/)
 - Lien ressources pour la documentation [SFML](https://www.sfml-dev.org/tutorials/2.3/start-vc-fr.php)
