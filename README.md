@@ -2,10 +2,15 @@
 exemple de code fait en cours pour vérifier nos compétence en C++
 
 #### Dans cette solution sont regroupés les projet suivant:
-	- Cours_C (justePrix)
-	- MonPendu
-	- reference
-	- JeuxVideo
+
+- [Cours_C (justePrix)](#projet-JustePrix)
+- [MonPendu](#projet-MonPendu)
+- [reference](#projet-reference)
+- [JeuxVideo](#projet-JeuxVideo)
+	
+**************************************************************************************	
+	
+<div id='projet-reference'/>
 
 ## Dans le projet reference
 
@@ -61,6 +66,10 @@ auto maVariable4(45);
 	printf_s("%i\n", *monPointeur4);
 }
 ```
+**************************************************************************************
+
+<div id='projet-JustePrix'/>
+
 ## Dans le projet JustePrix
 
 Description : le but de ce jeux est de proposer le juste prix suivant les différentes proposition le programme affichera "c'est plus" ou "c'est moin". Il y a 3 mode de jeu le mode normal / facile et en 3 parties.
@@ -318,6 +327,9 @@ void afficherMenu()
     cout << static_cast<char>(ChoixMenu::QUITTER) << ": quitter" << endl;
 }
 ```
+**************************************************************************************
+
+<div id='projet-MonPendu'/>
 
 ## Dans le projet MonPendu
 
@@ -325,6 +337,380 @@ Description : le but de ce jeux est de deviner le mot proposer avant que notre b
 On peut y voir 6 fichier différents 3 dans le dossier d'en-tête (AffichagePendu.h / Aleatoire.h / main.h) et 3 dans le dossier Fichier sources (AffichagePendu.cpp / Aleatoire.cpp / main.cpp).
 
 **************************************************************************************
+
+<div id='projet-JeuxVideo'/>
+
+## Dans le projet JeuxVideo
+Description : ce projet contient le jeux pong avec un aspect graphique fait via la bibliothèque SFML. 
+Dans ce projet (qui a nécessité beaucoup de recherche), on aborde plusieur sujet allant de la création graphique à la gestion des colision entre les différents objets.
+
+Description: Dans ce fichier on y retrouve tous ce qui permettra de gérer les entées clavier (ici on gère les flèches et la barre espace du clavier).
+
+#### Fichier input.h
+
+```c
+#pragma once
+#ifndef INPUT_H
+#define INPUT_H
+#include <SFML/Graphics.hpp>
+using namespace sf;
+
+class Input
+{
+	struct Button
+	{
+		bool left, right, up, down, escape;
+	};
+
+public:
+	//proto du constructeur
+	Input();
+	//protos
+	Button GetButton(void) const;
+	void InputHandler(Event event, RenderWindow& window);
+
+private:
+	Button button;
+};
+
+
+#endif // !INPUT_H
+```
+
+Description: Dans ce fichier on y retrouve toutes les fonctions permettant de gérer les différentes touche du clavier (même si ici on gère seulement les flèches et la barre espace du clavier).
+
+#### Fichier input.cpp
+
+```c
+#include "input.h"
+
+//constructeur
+Input::Input() 
+{
+	button.left = button.right = button.up = button.down = button.escape = false;
+
+}
+
+//Fonction qui accède à un button (struc) et nous donne l'info private
+Input::Button Input::GetButton(void) const 
+{
+	return button;
+}
+
+//fonction de gestion des inputs
+void Input::InputHandler(Event event, RenderWindow& window)
+{
+	//Fermer la fenetre si on clique sur la croix
+	if (event.type == Event::Closed)
+	{
+		//on ferme la fenetre
+		window.close();
+	}
+
+	// Gestion des input (appuyes)
+	if (event.type == Event::KeyPressed)
+	{
+		switch (event.key.code) // code de la touche utilisee
+		{
+		case Keyboard::Escape:
+			button.escape = true;
+			break;
+
+		case Keyboard::Left:
+			button.left = true;
+			break;
+
+		case Keyboard::Right:
+			button.right = true;
+			break;
+
+		case Keyboard::Down:
+			button.down = true;
+			break;
+
+		case Keyboard::Up:
+			button.up = true;
+			break;
+		}
+
+	}
+	// Gestion des input (relacher)
+	if (event.type == Event::KeyReleased)
+	{
+		switch (event.key.code) // code de la touche utilisee
+		{
+		case Keyboard::Escape:
+			button.escape = false;
+			break;
+
+		case Keyboard::Left:
+			button.left = false;
+			break;
+
+		case Keyboard::Right:
+			button.right = false;
+			break;
+
+		case Keyboard::Down:
+			button.down = false;
+			break;
+
+		case Keyboard::Up:
+			button.up = false;
+			break;
+		}
+
+	}
+}
+```
+Description: Dans ce fichier on retrouve toutes les déclarations des différentes fonctions servant à Dessiner les différent éléments, à géréer les différentes colisions entre les élément dessiner, à positionner les différents éléments du jeux.
+
+#### Fichier Header.h
+
+```c
+#pragma once
+#include <SFML/Graphics.hpp>
+#include <iostream>
+#include "input.h"
+
+#ifndef HEADER_H
+#define HEADER_H
+
+
+// Constantes du programme
+const int WIN_WIDTH = 800;
+const int WIN_HEIGHT = 600;
+
+// Namesapces
+using namespace sf;
+using namespace std;
+
+// Prototypes 
+void UpdateBall();
+void SetText(Text& txt, String str);
+void CheckBtn();
+void RaquetteIA();
+
+#endif // !HEADER_H
+```
+
+Description: Dans ce fichier on retrouve toutes les definitions des différentes fonctions servant à Dessiner les différent éléments, à géréer les différentes colisions entre les élément dessiner, à positionner les différents éléments du jeux.
+
+#### Fichier Source.cpp
+
+```c
+#include "Header.h"
+
+/*
+* Nom : Guerraz
+* Prenom : Yohan
+* Date : 17/11/2021
+* Description : Ce fichier contient les fonctions permettant de lancer le jeu pong.
+*/
+
+
+// Variables
+// La fenetre du jeu
+RenderWindow window;
+// Pour la gestion des inputs
+Input input;
+//pour stocker la fonte 
+Font font;
+// Pour stocker le texte
+Text txt;
+
+//Pos raquettes
+float posRaquettesLeftX = 50;
+float posRaquettesRightX = WIN_WIDTH - 70;
+float posRaquettesLeftY = WIN_HEIGHT / 2;
+float posRaquettesRightY = posRaquettesLeftY;
+float posRaquettesSpeed = 0.25f;
+int raquettesHeight = 150;
+int raquettesWidth = 20;
+
+//Info Balles
+float ballSpeed = 0.055f;
+Vector2f ballDir = Vector2f(1.5f, 2.0f);
+float ballPosX = WIN_WIDTH / 2;
+float ballPosY = WIN_HEIGHT / 2;
+
+//Score 
+int scoreJ1 = 0;
+int scoreJ2 = 0;
+
+// Astuce pour afficher un chiffre sous forme de string
+char temp[256];
+
+//debut du programme
+int main()
+{
+	//Création d'une fenetre
+	window.create(VideoMode(WIN_WIDTH, WIN_HEIGHT , 32), "Pong" , Style::Default);
+	//chargement fonte
+	font.loadFromFile("res/Poppins-Regular.ttf");
+	// On règle toutes les propriétés de celui-ci
+	SetText(txt, std::to_string(scoreJ1) + "|" + std::to_string(scoreJ2));
+
+	//Préparation des formes
+	//Balle
+	CircleShape circleShape(15);
+	circleShape.setPosition(ballPosX, ballPosY);
+	//Raquette gauche
+	RectangleShape rectangleShape(Vector2f(raquettesWidth, raquettesHeight));
+	rectangleShape.setPosition(posRaquettesLeftX, posRaquettesLeftY);
+	//Raquette droit
+	RectangleShape rectangleShape2(Vector2f(raquettesWidth, raquettesHeight));
+	rectangleShape2.setPosition(posRaquettesRightX, posRaquettesRightY);
+
+	//Boucle qui tourne tant que la fenetre est ouverte
+	while (window.isOpen())
+	{
+		Event event; // Variable pour gérer l'événement
+		//on boucle sur les événements
+		while (window.pollEvent(event))
+		{
+			// Gestion des input / events
+			input.InputHandler(event, window);
+		}
+		//Gestion clavier
+		CheckBtn();
+		RaquetteIA();
+		// Position raquettes, balle
+		rectangleShape.setPosition(posRaquettesLeftX, posRaquettesLeftY);
+		rectangleShape2.setPosition(posRaquettesRightX, posRaquettesRightY);
+		// Update Ball
+		UpdateBall();
+		circleShape.setPosition(ballPosX, ballPosY);
+		//couleur de la fenetre en noir
+		window.clear(Color::Black);
+		//C'est ici que l'on dessine les éléments du jeu
+		window.draw(txt);
+		window.draw(circleShape);
+		window.draw(rectangleShape);
+		window.draw(rectangleShape2);
+
+		// Dessiner à l'écran
+		window.display();
+	}
+
+	return 0;
+}
+
+void SetText(Text& txt, String str)
+{
+	//indique quelle police utiliser
+	txt.setFont(font);
+	//indique la chaine de caractère à afficher 
+	txt.setString(str);
+	//indique la taille de la police
+	txt.setCharacterSize(26);
+	//donne la couleur 
+	txt.setFillColor(Color::White);
+	// Posistion
+	txt.setPosition((WIN_WIDTH / 2) - 40, 10);
+
+}
+
+void CheckBtn()
+{
+	// Raquette gauche
+	if (input.GetButton().up == true)
+	{
+		posRaquettesLeftY -= posRaquettesSpeed;
+		if(posRaquettesLeftY < 0)
+		{
+			posRaquettesLeftY = 0;
+		}
+	}
+
+	if (input.GetButton().down == true)
+	{
+		posRaquettesLeftY += posRaquettesSpeed;
+		if (posRaquettesLeftY + raquettesHeight > WIN_HEIGHT)
+		{
+			posRaquettesLeftY = WIN_HEIGHT - raquettesHeight;
+		}
+	}
+
+	// Raquette droite
+	if (input.GetButton().left == true)
+	{
+		posRaquettesRightY -= posRaquettesSpeed;
+		if (posRaquettesRightY < 0)
+		{
+			posRaquettesRightY = 0;
+		}
+	}
+
+	if (input.GetButton().right == true)
+	{
+		posRaquettesRightY += posRaquettesSpeed;
+		if (posRaquettesRightY + raquettesHeight > WIN_HEIGHT)
+		{
+			posRaquettesRightY = WIN_HEIGHT - raquettesHeight;
+		}
+	}
+
+	if (input.GetButton().escape == true)
+	{
+		window.close();
+	}
+}
+
+void UpdateBall()
+{
+	// Pos balle
+	ballPosX += ballDir.x * ballSpeed;
+	ballPosY += ballDir.y * ballSpeed;
+
+	//colisions balle
+	//raqutte gauche et droite touchée 
+	if ((ballPosX < posRaquettesLeftX + raquettesWidth && ballPosX > posRaquettesLeftX && ballPosY+7 < posRaquettesLeftY + raquettesHeight && ballPosY+7 > posRaquettesLeftY) || (ballPosX < posRaquettesRightX + raquettesWidth && ballPosX > posRaquettesRightX && ballPosY+7 < posRaquettesRightY + raquettesHeight && ballPosY+7 > posRaquettesRightY))
+	{
+		ballDir.x *= -1;
+	}
+
+	// mur gauche
+	if (ballPosX < 0)
+	{
+		scoreJ2++;
+		ballPosX = WIN_WIDTH / 2;
+		ballPosY = WIN_HEIGHT / 2;
+		ballDir.x = fabs(ballDir.x);
+		ballDir.y *= -1;
+		SetText(txt, std::to_string(scoreJ1) + "|" + std::to_string(scoreJ2));
+
+	}
+
+	// mur droit
+	if (ballPosX > WIN_WIDTH)
+	{
+		scoreJ1++;
+		ballPosX = WIN_WIDTH / 2;
+		ballPosY = WIN_HEIGHT / 2;
+		ballDir.x = -fabs(ballDir.x);
+		ballDir.y *= -1;
+		SetText(txt, std::to_string(scoreJ1) + "|" + std::to_string(scoreJ2));
+
+	}
+
+	//mur haut ou bas 
+	if (ballPosY > WIN_HEIGHT || ballPosY < 0)
+	{
+		ballDir.y *= -1;
+	}
+
+}
+
+//IA intégrer à la raquette droite
+void RaquetteIA()
+{
+	posRaquettesRightY = ballPosY;
+}
+```
+
+**************************************************************************************
 ## Sources
 - Lien ressources pour [C++](https://isocpp.org/)
+- Lien ressources pour la documentation [SFML](https://www.sfml-dev.org/tutorials/2.3/start-vc-fr.php)
 - Lien ressources pour installer [SFML](https://www.sfml-dev.org/tutorials/2.3/start-vc-fr.php) sur Visual studio 2019
